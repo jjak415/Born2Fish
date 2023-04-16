@@ -10,13 +10,14 @@ public class PlayerController : MonoBehaviour
     public Vector2 move;
     public Rigidbody rb;
     public float stopTime;
-    public delegate void OnPlayerEnteredArea(int areaIndex);
+    public delegate void OnPlayerEnteredArea();
     public static event OnPlayerEnteredArea PlayerEnteredArea;
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
     }
     // i have to grab the script from fishinspot to check if I am okay to press E to fish (in the trigger)
+
 
 
     void FixedUpdate()
@@ -46,8 +47,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Feesh"))
         {
-            int areaIndex = other.GetComponent<Feesh>().index;
-            PlayerEnteredArea?.Invoke(areaIndex);
+            //int areaIndex = other.GetComponent<Feesh>().index;
+            PlayerEnteredArea?.Invoke();
         }
     }
 }

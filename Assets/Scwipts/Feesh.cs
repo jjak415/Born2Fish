@@ -7,16 +7,11 @@ using UnityEngine.UI;
 
 public class Feesh : MonoBehaviour
 {
-    public bool  inRange;
-    public Text feesh;
-    public int index;
+   // public bool  inRange;
+    public Text Good2Fish;
+    public bool InRange;
 
 
-
-    private void Awake()
-    {
-
-    }
     private void Start()
     {
         PlayerController.PlayerEnteredArea += OnPlayerEnteredArea;
@@ -25,9 +20,9 @@ public class Feesh : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            inRange = true;
-            feesh.enabled = true;
-            Debug.Log("Rdy 2 Fish :)");
+            InRange = true;
+            Good2Fish.enabled = true;
+            //Debug.Log("Rdy 2 Fish :)");
         
         }
     }
@@ -35,16 +30,16 @@ public class Feesh : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            inRange = false;
-            feesh.enabled = false;
-            Debug.Log("No Feesh :(");
+            InRange = false;
+            Good2Fish.enabled = false;
+            //Debug.Log("No Feesh :(");
 
         }
     }
 
-    void OnPlayerEnteredArea(int areaIndex)
+    void OnPlayerEnteredArea()
     {
-        Debug.Log("He be feeshin at " + areaIndex);
+        //Debug.Log("He be feeshin at " + areaIndex);
     }
 
 }

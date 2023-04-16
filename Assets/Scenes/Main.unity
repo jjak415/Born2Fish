@@ -359,9 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1466e507c32825f4bae634c181762a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: 0
-  feesh: {fileID: 1004810031}
-  index: 1
+  Good2Fish: {fileID: 1004810031}
+  InRange: 0
 --- !u!1 &416751391
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 605925889}
+  - component: {fileID: 605925890}
   m_Layer: 0
   m_Name: FeeshManagwer
   m_TagString: Untagged
@@ -735,6 +735,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605925890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605925888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab8bf395743f5b468a4c6874da422de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSpots: []
 --- !u!1 &682071373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,14 +1037,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794627434}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.3, y: 0, z: 23.2}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
+  m_LocalPosition: {x: -8.3, y: 0, z: 23.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 605925889}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &794627436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,9 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1466e507c32825f4bae634c181762a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: 0
-  feesh: {fileID: 1004810031}
-  index: 2
+  Good2Fish: {fileID: 1004810031}
+  InRange: 0
 --- !u!65 &794627437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2419,9 +2431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1466e507c32825f4bae634c181762a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inRange: 0
-  feesh: {fileID: 1004810031}
-  index: 3
+  Good2Fish: {fileID: 1004810031}
+  InRange: 0
 --- !u!65 &1929155302
 BoxCollider:
   m_ObjectHideFlags: 0
