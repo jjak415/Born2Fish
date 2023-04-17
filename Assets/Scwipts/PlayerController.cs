@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public delegate void OnPlayerEnteredArea();
     public static event OnPlayerEnteredArea PlayerEnteredArea;
     public FeeshManager FManager;
+    public MeshRenderer FishinPole;
     //Transform playerTransform; // assign the player's Transform component
     //Transform objectTransform; // assign the object's Transform component
 
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
             transform.rotation = rotation;
             FManager.GetComponent<FeeshManager>().LookAtFish = false;
+            FishinPole.enabled = true;
+
         }
     }
     private void OnTriggerEnter(Collider other)

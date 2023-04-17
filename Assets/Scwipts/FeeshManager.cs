@@ -12,6 +12,8 @@ public class FeeshManager : MonoBehaviour
     // make sure to implement the finding of children objects
     //separate Feesh and FeeshSpots. Feesh will be what active the Spots so that the player can walk up and interact.
     // Use Spots as static areas and have the player rotate to face the direction of the Feesh that create the FeeshSpot
+    // Use an animation to turn off the fishing pole after you catch a fish or fail to catch a fish
+
 
     private void Awake()
     {
