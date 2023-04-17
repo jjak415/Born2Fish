@@ -3100,6 +3100,10 @@ PrefabInstance:
       propertyPath: stopTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8402021795998834702, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
+      propertyPath: FishinPole
+      value: 
+      objectReference: {fileID: 474916045}
     - target: {fileID: 8556382423389331969, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
       propertyPath: m_IsTrigger
       value: 0
