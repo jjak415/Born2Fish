@@ -875,7 +875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab8bf395743f5b468a4c6874da422de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LookAtFish: 0
   FSpots: []
+  TurnToFish: {fileID: 0}
 --- !u!1 &682071373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3090,6 +3092,10 @@ PrefabInstance:
       propertyPath: speed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8402021795998834702, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
+      propertyPath: FManager
+      value: 
+      objectReference: {fileID: 605925888}
     - target: {fileID: 8402021795998834702, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
       propertyPath: stopTime
       value: 5

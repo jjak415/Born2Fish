@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FeeshManager : MonoBehaviour
 {
+    public bool LookAtFish;
     [SerializeField]
     private List<Feesh> FSpots = new List<Feesh>();
-
+    public Transform TurnToFish;
     //*TO DO*
     // make sure to implement the finding of children objects
     //separate Feesh and FeeshSpots. Feesh will be what active the Spots so that the player can walk up and interact.
@@ -33,8 +34,13 @@ public class FeeshManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    TurnToFish = spot.transform;
+                    LookAtFish = true;
                     Debug.Log("Caught ya a big'un!");
+
                 }
+
+
             }
         }
     }
