@@ -38,7 +38,7 @@ public class FeeshManager : MonoBehaviour
                 {
                     TurnToFish = spot.transform;
                     LookAtFish = true;
-                    Debug.Log("Caught ya a big'un!");
+                    //Debug.Log("Caught ya a big'un!");
 
                 }
 
