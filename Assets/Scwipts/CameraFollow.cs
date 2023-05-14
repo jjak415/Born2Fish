@@ -19,9 +19,7 @@ public class CameraFollow : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-
+    { 
          if (target != null)
          {
          Vector3 targetPos = target.position + offset;
@@ -34,7 +32,6 @@ public class CameraFollow : MonoBehaviour
             camT.eulerAngles = camT.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X") * speed, 0);
         }
     }
-
 
 }
 

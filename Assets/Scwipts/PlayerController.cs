@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,12 +21,16 @@ namespace Born2Fish
         private float catchWindow = 1.5f;
         private float catchTrigger = 0.0f;
         private PlayerSM pStateM;
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            move = context.ReadValue<Vector2>();
-        }
-        // i have to grab the script from fishinspot to check if I am okay to press E to fish (in the trigger)
 
+        private Camera _camera;
+        private Vector2 _mouseDelta;
+        public float CameraSpeed = 1.0f;
+        public float CameraSmoothing = 1.0f;
+        private Vector3 _cameraVelocity = Vector3.zero;
+
+        private Transform _characterTransform => rb.transform;
+        private Transform _playerTransform => transform;
+        private GameObject _cameraController;
 
         private void Awake()
         {
@@ -37,10 +39,32 @@ namespace Born2Fish
             pStateM.Init();
             biteWindow = Random.Range(3, 6);
 
-            //Debug.Log(biteWindow);
+            _camera = GetComponentInChildren<Camera>();
+            _cameraController = GameObject.Find("CameraController"); //TODO: this should be smarter :)
         }
 
-        void FixedUpdate()
+        public void DetectMouseClicks()
+        {
+            if (Mouse.current.leftButton.isPressed)
+            {
+                _mouseDelta = Mouse.current.delta.ReadValue();
+                Debug.Log("_mouseDelta = " + _mouseDelta);
+                // Do stuff for mouse rotation
+            }
+            else
+            {
+                // TODO: make this a slow stop
+                _mouseDelta = Vector2.zero;
+            }
+        }
+
+        // Hooked up to UI system!
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            move = context.ReadValue<Vector2>();
+        }
+
+        protected void FixedUpdate()
         {
             if (!isFishin)
                 movePlayer();
@@ -88,39 +112,52 @@ namespace Born2Fish
 
 
 
-        //        }
-        //    }
+            //        }
+            //    }
+
+            DetectMouseClicks();
+            rotateCamera();
+
+            _cameraController.transform.position = Vector3.Lerp(_cameraController.transform.position, rb.position, CameraSmoothing);
         }
 
-        public void movePlayer()
+        private void rotateCamera()
+        {
+            if (_mouseDelta.x != 0.0f)
+            {
+                _cameraController.transform.RotateAround(_characterTransform.position, Vector3.up, _mouseDelta.x * CameraSpeed);
+            }
+        }
+
+        protected void movePlayer()
         {
             if (move.sqrMagnitude > 0.1f)
             {
-                Vector3 movement = new Vector3(move.x, 0f, move.y);
+                Vector3 movementDirection =
+                    (_camera.transform.forward.normalized * move.y + _camera.transform.right.normalized * move.x).normalized;
+                Vector3 movement = movementDirection * speed;
 
-                rb.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
-                rb.velocity = new Vector3(movement.x, 0, movement.z) * speed;
-
+                rb.velocity = movement;
             }
             else
             {
-                ///Debug.Log("Im at 0");
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, stopTime);
             }
+
             if (FManager.LookAtFish)
             {
-
                 //Look at the defined FishinSpot's X
-                Vector3 turnToFishSanitized = new Vector3(FManager.TurnToFish.position.x, FManager.TurnToFish.position.y, transform.position.z);
-                Vector3 direction = turnToFishSanitized - transform.position;
+                Vector3 turnToFishSanitized = new Vector3(FManager.TurnToFish.position.x, FManager.TurnToFish.position.y, _characterTransform.position.z);
+
+                Vector3 direction = turnToFishSanitized - _characterTransform.position;
                 float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
-                transform.rotation = rotation;
-                // FManager.GetComponent<FeeshManager>().LookAtFish = false;
+                _characterTransform.rotation = rotation;
+                FManager.GetComponent<FeeshManager>().LookAtFish = false;
                 FishinPole.enabled = true;
-
             }
         }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Feesh"))
