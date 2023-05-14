@@ -796,6 +796,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &534583097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534583083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b86dda67d88dd74498d7a93443379f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FManagerRef: {fileID: 0}
 --- !u!1 &569531534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 28.616, y: -30, z: 0}
 --- !u!4 &714991166 stripped
 Transform:
@@ -3273,7 +3286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3243816614363663316, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3243816614363663316, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3367,6 +3380,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4424321125455643380, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 534583097}
+    - targetCorrespondingSourceObject: {fileID: 4424321125455643380, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 534583096}
   m_SourcePrefab: {fileID: 100100000, guid: 1ae63a8673f51d84289645b0374c8b60, type: 3}
 --- !u!1001 &1418963707412122507
@@ -3379,7 +3395,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6353982009441087367, guid: a6e8620e8c57df84785d1b26ffb86c8b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6353982009441087367, guid: a6e8620e8c57df84785d1b26ffb86c8b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2,48 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FeeshManager : MonoBehaviour
+namespace Born2Fish
 {
-    public bool LookAtFish;
-    [SerializeField]
-    private List<Feesh> FSpots = new List<Feesh>();
-    public Transform TurnToFish;
-    //*TO DO*
-    // make sure to implement the finding of children objects
-    //separate Feesh and FeeshSpots. Feesh will be what active the Spots so that the player can walk up and interact.
-    // Use Spots as static areas and have the player rotate to face the direction of the Feesh that create the FeeshSpot
-    // Use an animation to turn off the fishing pole after you catch a fish or fail to catch a fish
-
-
-    private void Awake()
+    public class FeeshManager : MonoBehaviour
     {
-        FSpots.Clear();
+        public bool LookAtFish;
+        [SerializeField]
+        public List<Feesh> FSpots = new List<Feesh>();
+        public Transform TurnToFish;
+        //*TO DO*
+        // make sure to implement the finding of children objects
+        //separate Feesh and FeeshSpots. Feesh will be what active the Spots so that the player can walk up and interact.
+        // Use Spots as static areas and have the player rotate to face the direction of the Feesh that create the FeeshSpot
+        // Use an animation to turn off the fishing pole after you catch a fish or fail to catch a fish
 
 
-        Feesh[] fishinSpot = GameObject.FindObjectsOfType<Feesh>();
-        for (int i = 0; i < fishinSpot.Length; i++)
+        private void Awake()
         {
-            FSpots.Add(fishinSpot[i]);
-        }
-    }
+            FSpots.Clear();
 
-    // Update is called once per frame
-    void Update()
-    {
-        foreach(Feesh spot in FSpots)
-        {
-            if (spot.InRange)
+
+            Feesh[] fishinSpot = GameObject.FindObjectsOfType<Feesh>();
+            for (int i = 0; i < fishinSpot.Length; i++)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    TurnToFish = spot.transform;
-                    LookAtFish = true;
-                    //Debug.Log("Caught ya a big'un!");
-
-                }
-
-
+                FSpots.Add(fishinSpot[i]);
             }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            
         }
     }
 }
+
